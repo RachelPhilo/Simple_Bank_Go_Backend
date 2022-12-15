@@ -33,11 +33,11 @@ func createRandomTransfer(t *testing.T) Transfer {
 	return transfer
 }
 
-func TestGetTransfer(t *testing.T) {
+func TestCreateTransfer(t *testing.T) {
 	createRandomTransfer(t)
 }
 
-func TestCreateTransfer(t *testing.T) {
+func TestGetTransfer(t *testing.T) {
 	transfer1 := createRandomTransfer(t)
 	transfer2, err := testQueries.GetTransfer(context.Background(), transfer1.ID)
 	require.NoError(t, err)

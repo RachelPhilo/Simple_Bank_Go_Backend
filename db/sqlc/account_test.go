@@ -11,8 +11,10 @@ import (
 )
 
 func createRandomAccount(t *testing.T) Account {
+	user := createRandomUser(t)
+
 	arg := CreateAccountParams{
-		Owner:    util.RandomOwner(),
+		Owner:    user.Username,
 		Balance:  util.RandomMoney(),
 		Currency: util.RandomCurrency(),
 	}
@@ -31,11 +33,11 @@ func createRandomAccount(t *testing.T) Account {
 	return account
 }
 
-func TestGetAccount(t *testing.T) {
+func TestCreateAccount(t *testing.T) {
 	createRandomAccount(t)
 }
 
-func TestCreateAccount(t *testing.T) {
+func TestGetAccount(t *testing.T) {
 	account1 := createRandomAccount(t)
 	account2, err := testQueries.GetAccount(context.Background(), account1.ID)
 	require.NoError(t, err)

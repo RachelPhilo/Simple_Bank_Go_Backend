@@ -30,11 +30,11 @@ func createRandomEntry(t *testing.T) Entry {
 	return entry
 }
 
-func TestGetEntry(t *testing.T) {
+func TestCreateEntry(t *testing.T) {
 	createRandomEntry(t)
 }
 
-func TestCreateEntry(t *testing.T) {
+func TestGetEntry(t *testing.T) {
 	entry1 := createRandomEntry(t)
 	entry2, err := testQueries.GetEntry(context.Background(), entry1.ID)
 	require.NoError(t, err)
